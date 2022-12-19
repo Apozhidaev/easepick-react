@@ -8,13 +8,12 @@ import {
   createElement,
 } from "react";
 import { easepick } from "@easepick/bundle";
-import { IPickerConfig } from "@easepick/core/dist/types";
 
 export type EasePickInputElement = HTMLInputElement & {
   pickerInstance?: easepick.Core;
 };
 
-export type EasePickOptions = Omit<IPickerConfig, "element">;
+export type EasePickOptions = Omit<ConstructorParameters<typeof easepick.create>[0], "element">;
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
   options: EasePickOptions;
