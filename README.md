@@ -1,6 +1,6 @@
 # easepick-react
 
-This component is react wrapper for [@easepick/bundle](https://easepick.com/packages/bundle.html).
+This component is react wrapper for [easepick](https://easepick.com/).
 
 
 
@@ -14,7 +14,7 @@ This component is react wrapper for [@easepick/bundle](https://easepick.com/pack
 
 Step 1.
 ```bash
-npm i @easepick/bundle
+npm i @easepick/core
 npm i easepick-react
 ```
 

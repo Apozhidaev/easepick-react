@@ -1,6 +1,6 @@
 {
   "name": "easepick-react",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "module": "dist/module.js",
   "types": "dist/index.d.ts",
@@ -14,20 +14,21 @@
     "date",
     "daterange",
     "picker",
-    "range"
+    "range",
+    "wrapper"
   ],
   "scripts": {
     "build:ts": "tsc",
-    "build:cjs": "esbuild src/index.ts --format=cjs --bundle --outfile=dist/index.js --external:react --external:@easepick/bundle",
-    "build:esm": "esbuild src/index.ts --format=esm --bundle --outfile=dist/module.js --external:react --external:@easepick/bundle",
+    "build:cjs": "esbuild src/index.ts --format=cjs --bundle --outfile=dist/index.js --external:react --external:@easepick/core",
+    "build:esm": "esbuild src/index.ts --format=esm --bundle --outfile=dist/module.js --external:react --external:@easepick/core",
     "build": "yarn run build:cjs && yarn run build:esm && yarn run build:ts"
   },
   "peerDependencies": {
-    "@easepick/bundle": ">=1.0.0",
+    "@easepick/core": ">=1.0.0",
     "react": ">=16.8.0"
   },
   "devDependencies": {
-    "@easepick/bundle": "^1.2.0",
+    "@easepick/core": "^1.2.0",
     "@types/react": "^18.0.26",
     "esbuild": "^0.16.9",
     "react": "^18.2.0",

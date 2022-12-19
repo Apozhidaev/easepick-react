@@ -7,7 +7,7 @@ import {
   InputHTMLAttributes,
   createElement,
 } from "react";
-import { easepick } from "@easepick/bundle";
+import { easepick } from "@easepick/core";
 
 export type EasePickInputElement = HTMLInputElement & {
   pickerInstance?: easepick.Core;
