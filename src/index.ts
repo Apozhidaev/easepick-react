@@ -15,12 +15,12 @@ export type EasePickInputElement = HTMLInputElement & {
 
 export type EasePickOptions = Omit<ConstructorParameters<typeof easepick.create>[0], "element">;
 
-type Props = InputHTMLAttributes<HTMLInputElement> & {
+export type EasePickWrapperProps = InputHTMLAttributes<HTMLInputElement> & {
   options: EasePickOptions;
 };
 
 const EasePickWrapper = forwardRef(function EasePicker(
-  props: Props,
+  props: EasePickWrapperProps,
   ref: React.ForwardedRef<EasePickInputElement>
 ) {
   const inputRef = useRef<EasePickInputElement>(null);
