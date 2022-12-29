@@ -13,9 +13,15 @@ export type EasePickInputElement = HTMLInputElement & {
   pickerInstance?: easepick.Core;
 };
 
-export type EasePickOptions = Omit<ConstructorParameters<typeof easepick.create>[0], "element">;
+export type EasePickOptions = Omit<
+  ConstructorParameters<typeof easepick.create>[0],
+  "element"
+>;
 
-export type EasePickWrapperProps = InputHTMLAttributes<HTMLInputElement> & {
+export type EasePickWrapperProps = Omit<
+  InputHTMLAttributes<HTMLInputElement>,
+  "type"
+> & {
   options: EasePickOptions;
 };
 
