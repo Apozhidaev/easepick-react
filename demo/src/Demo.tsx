@@ -1,30 +1,5 @@
-# easepick-react
-
-This component is react wrapper for [easepick](https://easepick.com/).
-
-
-
-### Attributes
-
-* **date** - date value
-* **startDate** - start date (for RangePlugin)
-* **endDate** - end date (for RangePlugin)
-* **options** - easepick options
-* **...inputProps[]** - input props
-
-
-### How to Use
-
-Step 1.
-```bash
-npm i @easepick/core
-npm i easepick-react
-```
-
-Step 2.
-```jsx
 import { useMemo, useState } from "react";
-import EasePicker, { EasePickOptions } from "easepick-react";
+import EasePicker, { EasePickOptions } from "../../src";
 
 function Demo() {
   const [date, setDate] = useState<Date | undefined>();
@@ -47,4 +22,3 @@ function Demo() {
 }
 
 export default Demo;
-```

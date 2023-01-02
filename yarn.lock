@@ -2,7 +2,14 @@
 # yarn lockfile v1
 
 
-"@easepick/core@^1.2.0":
+"@easepick/base-plugin@^1.1.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@easepick/base-plugin/-/base-plugin-1.2.0.tgz#76e88ba5c39b53b8a1de80b80fe890f3273bbd9d"
+  integrity sha512-N5zeUW2E0gyOuVCiQs2va0kM2hzojE4XFDrlYBZ4JmQ1pflkipaVgrJoTJVP5/g4dhO94zFhwJ4chhRFnpK1IQ==
+  dependencies:
+    "@easepick/core" "^1.1.0"
+
+"@easepick/core@^1.1.0", "@easepick/core@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@easepick/core/-/core-1.2.0.tgz#a0789aa626e8b6571bc5577f81df66da30f489a1"
   integrity sha512-kfuQcx/vMbEXZfDOHgk74jFnQFysy+2nXpRH+ATyahYoMqAvtImLOkOxNmdSV0AcWdGeo3PJqB272pMI175EUg==
@@ -13,6 +20,13 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@easepick/datetime/-/datetime-1.2.0.tgz#2018e8080961b1cff0ed021613559c1090107dd1"
   integrity sha512-J7xQSMIPCMOXE8wTHEY/XsleQ3P6w+BpV0VAM8k6YlF7w/rzHY9EkRqa4EEjaifMuOLWqEMIiJYijBw7zcBjOA==
+
+"@easepick/range-plugin@^1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@easepick/range-plugin/-/range-plugin-1.2.0.tgz#42fc4b7a9d06b272124c14134b9747343d577b2f"
+  integrity sha512-LcG6vffmnqdvhNxcdq3cfVtLEzL18Wmu6HgA++vuyJ5WaqTbmQ40zahXcAaadzqeiVTHSYkvzbetcMAjSXvdjw==
+  dependencies:
+    "@easepick/base-plugin" "^1.1.0"
 
 "@esbuild/android-arm64@0.16.9":
   version "0.16.9"
