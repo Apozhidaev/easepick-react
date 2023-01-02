@@ -25,9 +25,8 @@ function App() {
       setup(picker) {
         picker.on("select", (e) => {
           const { date, start, end } = e.detail;
-          console.log({ date, start, end });
-          // setDate(date);
-          setDate(new DateTime(date).format(format, lang));
+          setDate(date);
+          // setDate(new DateTime(date).format(format, lang));
           // setDate(
           //   new DateTime(start).format(format, lang) + " - " + (end
           //     ? new DateTime(end).format(format, lang)
@@ -35,11 +34,13 @@ function App() {
           // );
           setStart(start);
           setEnd(end);
+          console.log('select', { date, start, end });
         });
         picker.on("clear", () => {
           setDate(() => "");
           setStart(() => undefined);
           setEnd(() => undefined);
+          console.log('clear');
         });
       },
       AmpPlugin: {
@@ -58,7 +59,7 @@ function App() {
     <div className="p-2">
       <button
         onClick={() => {
-          setDate(() => "");
+          setDate(() => undefined);
           // setStart(() => undefined);
           setEnd(() => undefined);
           setStart(() => new DateTime().subtract(11, "day"));
@@ -69,12 +70,12 @@ function App() {
       </button>
       <EasePicker
         name="fgfg"
-        value={date}
-        onChange={(e) => {
-          setDate(e.target.value);
-          console.log("onChange");
-        }}
-        // date={date}
+        // value={date}
+        // onChange={(e) => {
+        //   setDate(e.target.value);
+        //   console.log("onChange");
+        // }}
+        date={date}
         // startDate={start}
         // endDate={end}
         options={options}

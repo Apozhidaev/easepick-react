@@ -29,13 +29,24 @@ function getTimeValue(date?: DateType) {
   return new DateTime(date).getTime();
 }
 
-function updateValue(value: string | undefined, picker: easepick.Core) {
-  if (!value) {
-    return;
-  }
-
+function updateInputValue(value: string, picker: easepick.Core) {
   const rangePlugin: RangePlugin =
     picker.PluginManager.getInstance("RangePlugin");
+
+  if (!value) {
+    if (rangePlugin) {
+      if (picker.getStartDate()?.getTime() || picker.getEndDate()?.getTime()) {
+        picker.clear();
+        return;
+      }
+    } else {
+      if (picker.getDate()?.getTime()) {
+        picker.clear();
+        return;
+      }
+    }
+    return;
+  }
 
   const { format, lang } = picker.options;
   if (rangePlugin) {
@@ -128,7 +139,9 @@ const EasePickWrapper = forwardRef(function EasePicker(
         endDate: dataEnd ? new DateTime(dataEnd) : undefined,
       },
     });
-    updateValue(value, element.pickerInstance);
+    if (value) {
+      updateInputValue(value, element.pickerInstance);
+    }
   }, [options]);
 
   // update date value
@@ -148,13 +161,12 @@ const EasePickWrapper = forwardRef(function EasePicker(
       return;
     }
 
-    if (!dataValue) {
-      picker.clear();
-      return;
-    }
-
     if (dataValue !== picker.getDate()?.getTime()) {
-      picker.setDate(dataValue);
+      if (dataValue) {
+        picker.setDate(dataValue);
+      } else {
+        picker.clear();
+      }
     }
   }, [dataValue]);
 
@@ -175,15 +187,14 @@ const EasePickWrapper = forwardRef(function EasePicker(
       return;
     }
 
-    if (!dataStart) {
-      picker.clear();
-      return;
-    }
-
     if (
       dataStart !== picker.getStartDate()?.getTime() ||
       dataEnd !== picker.getEndDate()?.getTime()
     ) {
+      if (!dataStart) {
+        picker.clear();
+        return;
+      }
       if (rangePlugin.options.strict) {
         if (dataStart && dataEnd) {
           picker.setDateRange(dataStart, dataEnd);
@@ -204,12 +215,7 @@ const EasePickWrapper = forwardRef(function EasePicker(
     if (!element || !element.pickerInstance) {
       return;
     }
-    const picker = element.pickerInstance;
-    if (!value) {
-      picker.clear();
-      return;
-    }
-    updateValue(value, picker);
+    updateInputValue(value, element.pickerInstance);
   }, [value]);
 
   return createElement("input", {
